@@ -3,6 +3,7 @@ import { useWallet } from '@solana/wallet-adapter-react'
 import { WalletMultiButton } from '@solana/wallet-adapter-react-ui'
 import { Wallet } from '@project-serum/anchor'
 import Payment from './Payment'
+import HomePage from '../pages/homepage'
 
 
 const styles = {
@@ -15,7 +16,7 @@ const Login = () => {
 
     const wallet = useWallet()
 
-    if (wallet.connected) return <Payment/>
+    if (wallet.connected) return <HomePage/>
 
     return (
         <div className={styles.loginPage}>
