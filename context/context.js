@@ -37,9 +37,7 @@ export const SpotifyProvider = ({ children }) => {
       setCurrentSong(song)
       setIsPlaying(true)
       setIsPaused(false)
-    } catch (e) {
-        console.log(e.message)
-    }
+    } catch (e) { }
   }
 
   const secondsToMinSec = (value) => {
@@ -58,9 +56,7 @@ export const SpotifyProvider = ({ children }) => {
     try {
       setVolume(e.target.value)
       document.querySelector('#audio-element').volume = e.target.value
-    } catch (e) {
-        console.log(e.message)
-    }
+    } catch (e) { }
   }
 
   const onProgressChange = (e) => {
@@ -71,6 +67,7 @@ export const SpotifyProvider = ({ children }) => {
   const onVolumeChange = (e) => {
     const _volume = e.target.value / 100
     document.querySelector('#audio-element').volume = _volume
+
   }
 
   const playNext = (songs) => {
@@ -102,12 +99,12 @@ export const SpotifyProvider = ({ children }) => {
     updateProgress, progress,
     playOnSelect,
     onProgressChange,
+    onVolumeChange,
     playNext,
     playPrevious,
     timestamp,
     updateVolume,
     volume,
-    onVolumeChange,
   }}>
     {children}
   </SpotifyContext.Provider>
