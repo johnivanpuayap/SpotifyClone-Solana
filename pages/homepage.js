@@ -2,10 +2,9 @@ import Nav from '../components/nav'
 import Activity from '../components/activity'
 import { useEffect, useState } from 'react'
 import Header from '../components/Header'
-import uploadModal from '../components/uploadModal'
+import UploadModal from '../components/uploadModal'
 import Playlist from '../components/playlist'
 import PlayerControls from '../components/playerControls'
-
 import useSpotify from '../hooks/useSpotify'
 
 const HomePage = () => {
@@ -23,6 +22,12 @@ const HomePage = () => {
     setShowUploadMusic,
   )
 
+  useEffect(() => {
+    getSongs().then(songs=>{
+      setSongs(songs)
+    })
+  }, [])
+
   return (
     <div className='flex'>
       <Nav />
@@ -33,7 +38,7 @@ const HomePage = () => {
         />
         <PlayerControls songs={songs}/>
         {showUploadMusic && (
-          <uploadModal
+          <UploadModal
             title={title}
             setTitle={setTitle}
             setShowUploadMusic={setShowUploadMusic}

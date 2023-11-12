@@ -6,7 +6,7 @@ const styles = {
 }
 
 const UploadButton = ({ setShowUploadMusic }) => {
-  // const { uploadMusic } = useContext(SpotifyContext)
+  const { uploadMusic } = useContext(SpotifyContext)
 
   const uploadClicked = () => {
     setShowUploadMusic(true)
