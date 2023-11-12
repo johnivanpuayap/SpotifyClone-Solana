@@ -14,7 +14,7 @@ const HomePage = () => {
     <div className='flex'>
       <Nav />
       <div className='w-full'>
-        <Header/>
+        <Header setShowUploadMusic = {setShowUploadMusic}/>
         {/* <Playlist /> */}
         {/* <PlayerControls /> */}
       </div>
