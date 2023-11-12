@@ -3,7 +3,8 @@ import Activity from '../components/activity'
 import { useEffect, useState } from 'react'
 import Header from '../components/Header'
 import uploadModal from '../components/uploadModal'
-import playlist from '../components/playlist'
+import Playlist from '../components/playlist'
+import PlayerControls from '../components/playerControls'
 
 import useSpotify from '../hooks/useSpotify'
 import {songs} from '../data/songs'
@@ -31,7 +32,7 @@ const HomePage = () => {
         <Playlist
           songs={songs} 
         />
-        {/* <PlayerControls /> */}
+        <PlayerControls />
         {showUploadMusic && (
           <uploadModal
             title={title}
