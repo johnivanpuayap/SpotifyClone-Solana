@@ -11,7 +11,7 @@ import {songs} from '../data/songs'
 
 const HomePage = () => {
 
-  const [showUploadMusic, setUploadMusic] = useState(false)
+  const [showUploadMusic, setShowUploadMusic] = useState(false)
   const [title, setTitle] = useState('')
   const [musicUrl, setMusicUrl] = useState('')
   // const [songs, setSongs] = useState([])  

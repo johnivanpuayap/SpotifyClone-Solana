@@ -10,7 +10,20 @@ import playRounded from "../assets/playRounded.svg"
 import pauseIcon from "../assets/pause.svg"
 
 const PlayerControls = ({songs}) => {
-  const { currentSong, isPlaying, volume, onVolumeChange, timestamp, progress, playNext, playPrevious, isPaused, play, pause, onProgressChange } = useContext(SpotifyContext)
+  const { 
+    currentSong, 
+    isPlaying,
+    volume, 
+    onVolumeChange, 
+    timestamp, 
+    progress, 
+    playNext, 
+    playPrevious, 
+    isPaused, 
+    play, 
+    pause, 
+    onProgressChange,
+  } = useContext(SpotifyContext)
 
   if (!isPlaying) return null
 
@@ -47,9 +60,11 @@ const PlayerControls = ({songs}) => {
           <div onClick={e => playNext(songs)} className={styles.controlIcon}>
             <Image src={next} alt='' />
           </div>
+
           <div className={styles.controlIcon}>
             <Image src={repeat} alt='' />
           </div>
+          
         </div>
         <div className={styles.flexCenter}>
           <small>{timestamp}</small>

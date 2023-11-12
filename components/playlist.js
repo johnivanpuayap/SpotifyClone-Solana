@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import TableRow from './table/tableRow'
+import TableRow from './tableRow'
 
 const Playlist = ({songs}) => {
   return (

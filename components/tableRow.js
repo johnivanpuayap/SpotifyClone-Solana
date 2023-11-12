@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { SpotifyContext } from '../../context/context'
+import { SpotifyContext } from '../context/context'
 
 const TableRow = ({ props }) => {
   const { playOnSelect } = useContext(SpotifyContext)
