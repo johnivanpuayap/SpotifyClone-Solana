@@ -6,13 +6,14 @@ import uploadModal from '../components/uploadModal'
 import playlist from '../components/playlist'
 
 import useSpotify from '../hooks/useSpotify'
+import {songs} from '../data/songs'
 
 const HomePage = () => {
 
   const [showUploadMusic, setUploadMusic] = useState(false)
   const [title, setTitle] = useState('')
   const [musicUrl, setMusicUrl] = useState('')
-  const [songs, setSongs] = useState([])  
+  // const [songs, setSongs] = useState([])  
 
   const { newMusic, getSongs} = useSpotify(
     musicUrl,
@@ -27,7 +28,9 @@ const HomePage = () => {
       <Nav />
       <div className='w-full'>
         <Header setShowUploadMusic = {setShowUploadMusic}/>
-        <Playlist/>
+        <Playlist
+          songs={songs} 
+        />
         {/* <PlayerControls /> */}
         {showUploadMusic && (
           <uploadModal
