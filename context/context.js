@@ -12,14 +12,20 @@ export const SpotifyProvider = ({ children }) => {
 
   useEffect(() => {
     if (isPlaying) {
-      let audio = document.querySelector('#audio-element')
-
-      audio.addEventListener("timeupdate", function () {
-        setTimestamp(secondsToMinSec(audio.currentTime))
-      }, false)
+      const audio = document.querySelector('#audio-element');
+      const handleTimeUpdate = () => {
+        setTimestamp(secondsToMinSec(audio.currentTime));
+        updateProgress(audio);  // Call updateProgress with the audio element
+      };
+  
+      audio.addEventListener("timeupdate", handleTimeUpdate, false);
+  
+      return () => {
+        audio.removeEventListener("timeupdate", handleTimeUpdate);
+      };
     }
-  }, [isPlaying])
-
+  }, [isPlaying]);
+  
   const pause = () => {
     setIsPaused(true)
     document.querySelector('#audio-element').pause()
@@ -47,10 +53,12 @@ export const SpotifyProvider = ({ children }) => {
     return minute + ':' + second;
   }
 
-  const updateProgress = e => {
-    const _progress = e.target.currentTime / e.target.duration
-    setProgress(_progress.toFixed(2) * 100)
-  }
+  const updateProgress = (e) => {
+    if (e && e.target) {
+      const _progress = e.target.currentTime / e.target.duration;
+      setProgress(_progress.toFixed(2) * 100);
+    }
+  };
 
   const updateVolume = (e) => {
     try {
